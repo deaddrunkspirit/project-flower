@@ -35,6 +35,46 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "faker"
+version = "30.8.1"
+description = "Faker is a Python package that generates fake data for you."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "Faker-30.8.1-py3-none-any.whl", hash = "sha256:4f7f133560b9d4d2a915581f4ba86f9a6a83421b89e911f36c4c96cff58135a5"},
+    {file = "faker-30.8.1.tar.gz", hash = "sha256:93e8b70813f76d05d98951154681180cb795cfbcff3eced7680d963bcc0da2a9"},
+]
+
+[package.dependencies]
+python-dateutil = ">=2.4"
+typing-extensions = "*"
+
+[[package]]
+name = "python-dateutil"
+version = "2.9.0.post0"
+description = "Extensions to the standard Python datetime module"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+files = [
+    {file = "python-dateutil-2.9.0.post0.tar.gz", hash = "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"},
+    {file = "python_dateutil-2.9.0.post0-py2.py3-none-any.whl", hash = "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427"},
+]
+
+[package.dependencies]
+six = ">=1.5"
+
+[[package]]
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+files = [
+    {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
+    {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
+]
+
+[[package]]
 name = "sqlparse"
 version = "0.5.1"
 description = "A non-validating SQL parser."
@@ -50,6 +90,17 @@ dev = ["build", "hatch"]
 doc = ["sphinx"]
 
 [[package]]
+name = "typing-extensions"
+version = "4.12.2"
+description = "Backported and Experimental Type Hints for Python 3.8+"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d"},
+    {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
+]
+
+[[package]]
 name = "tzdata"
 version = "2024.2"
 description = "Provider of IANA time zone data"
@@ -63,4 +114,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.13"
-content-hash = "65e4487372ad1c37b9696d26ba96819d89f4e488ed5a696e429391c0c73e7105"
+content-hash = "9cec4adca4907a0b98bfad9866919af84722a5448d96e8dddeeb414f99621154"
