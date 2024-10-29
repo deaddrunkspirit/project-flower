@@ -1,6 +1,25 @@
+from django.shortcuts import render
 from django.http import HttpResponse
+from django.core.paginator import Paginator
 from flower.models import Part
 import datetime
+
+
+def list_page_view(request):
+    query = request.GET.get('q', '')
+    items = Part.objects.filter(name__icontains=query) if query else Part.objects.all()
+    
+    paginator = Paginator(items, 10) 
+    page_number = request.GET.get('page', 1)
+    paginated_items = paginator.get_page(page_number)
+    
+    context = {
+        'page_title': "Parts",
+        'items': paginated_items,
+        'query': query
+    }
+    
+    return render(request, 'page.html', context)
 
 def home(request):
     parts = Part.objects.all()
@@ -11,6 +30,7 @@ def home(request):
     layout = f'''
         <main>
             <h1 style="padding:30px;">Parts</h1> 
+            <input />
             <ul style="list-style-type:none;">
                 <li style="display:flex; flex-direction:row; justify-content:space-evenly;">
                     <p style="font-weight: bold;">Name</p>

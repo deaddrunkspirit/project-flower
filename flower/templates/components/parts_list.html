@@ -1,0 +1,78 @@
+<style>
+    .item-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .item-list li {
+        background-color: #36393f;
+        color: #dcddde;
+        padding: 16px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        transition: background 0.2s;
+    }
+    .item-list li:hover {
+        background-color: #42454a;
+    }
+    .item-details {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    .item-details div {
+        font-size: 0.9em;
+        color: #b9bbbe;
+    }
+    .item-details .item-name {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 16px;
+        color: #dcddde;
+    }
+    .pagination a {
+        color: #5865f2;
+        margin: 0 8px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .pagination a:hover {
+        color: #4752c4;
+    }
+    .pagination span {
+        margin: 0 8px;
+    }
+</style>
+
+<ul class="item-list">
+    {% for item in items %}
+        <li>
+            <div class="item-details">
+                <div class="item-name">{{ item.name }}</div>
+                <div>Material: {{ item.material }}</div>
+                <div>Volume: {{ item.value }}</div>
+                <div>Weight: {{ item.weight }} kg</div>
+                <div>Created on: {{ item.created_at }}</div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+
+<div class="pagination">
+    {% if items.has_previous %}
+        <a href="?q={{ query }}&page={{ items.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    <span>Page {{ items.number }} of {{ items.paginator.num_pages }}</span>
+
+    {% if items.has_next %}
+        <a href="?q={{ query }}&page={{ items.next_page_number }}">Next</a>
+    {% endif %}
+</div>

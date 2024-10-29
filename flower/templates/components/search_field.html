@@ -1,0 +1,35 @@
+<style>
+    .search-form {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+    .search-form input[type="text"] {
+        background-color: #2f3136;
+        color: #dcddde;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        width: 100%;
+    }
+    .search-form input[type="text"]::placeholder {
+        color: #72767d;
+    }
+    .search-form button {
+        background-color: #5865f2;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .search-form button:hover {
+        background-color: #4752c4;
+    }
+</style>
+
+<form method="get" action="" class="search-form">
+    <input type="text" name="q" placeholder="Search..." value="{{ query }}">
+    <button type="submit">Search</button>
+</form>
