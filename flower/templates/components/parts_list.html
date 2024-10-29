@@ -56,10 +56,10 @@
         <li>
             <div class="item-details">
                 <div class="item-name">{{ item.name }}</div>
-                <div>Material: {{ item.material }}</div>
-                <div>Volume: {{ item.value }}</div>
-                <div>Weight: {{ item.weight }} kg</div>
-                <div>Created on: {{ item.created_at }}</div>
+                <div>Mатериал: {{ item.material }}</div>
+                <div>Объем: {{ item.value }}</div>
+                <div>Вес: {{ item.weight }} kg</div>
+                <div>Дата добавления: {{ item.created_at }}</div>
             </div>
         </li>
     {% endfor %}
@@ -67,12 +67,12 @@
 
 <div class="pagination">
     {% if items.has_previous %}
-        <a href="?q={{ query }}&page={{ items.previous_page_number }}">Previous</a>
+        <a href="?q={{ query }}&page={{ items.previous_page_number }}">Назад</a>
     {% endif %}
 
-    <span>Page {{ items.number }} of {{ items.paginator.num_pages }}</span>
+    <span>Страница {{ items.number }} из {{ items.paginator.num_pages }}</span>
 
     {% if items.has_next %}
-        <a href="?q={{ query }}&page={{ items.next_page_number }}">Next</a>
+        <a href="?q={{ query }}&page={{ items.next_page_number }}">Вперед</a>
     {% endif %}
 </div>

@@ -1,12 +1,50 @@
+<style>
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    .dropdown-button {
+        padding: 8px 12px;
+        background-color: #2f3136;
+        color: #dcddde;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 200px;
+        text-align: left;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #36393f;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        border-radius: 4px;
+        z-index: 1;
+        max-height: 200px;
+        overflow-y: auto;
+        width: 100%;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .dropdown-content label {
+        color: #b9bbbe;
+    }
+    .dropdown-content input[type="checkbox"] {
+        accent-color: #5865f2;
+    }
+</style>
+
 <form method="get" action="" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
     <!-- Search by name with type option -->
     <div>
-        <label for="q" style="color: #dcddde;">Search Name:</label>
+        <label for="q" style="color: #dcddde;">Наименование:</label>
         <input 
             type="text" 
             name="q" 
             id="q"
-            placeholder="Enter name..." 
+            placeholder="Поиск..." 
             value="{{ query }}" 
             style="
                 padding: 10px; 
@@ -18,19 +56,36 @@
             "
         >
         <select name="search_type" style="padding: 5px; background-color: #2f3136; color: #dcddde; border-radius: 4px;">
-            <option value="contains" {% if search_type == 'contains' %}selected{% endif %}>Contains</option>
-            <option value="starts_with" {% if search_type == 'starts_with' %}selected{% endif %}>Starts with</option>
+            <option value="contains" {% if search_type == 'contains' %}selected{% endif %}>Содержит</option>
+            <option value="starts_with" {% if search_type == 'starts_with' %}selected{% endif %}>Начинается с</option>
         </select>
     </div>
 
+    <div>
+        <div class="dropdown">
+            <button type="button" class="dropdown-button">Материалы</button>
+            <div class="dropdown-content">
+                {% for material in all_materials %}
+                    <label style="display: flex; align-items: center; gap: 5px;">
+                        <input 
+                            type="checkbox" 
+                            name="materials" 
+                            value="{{ material }}" 
+                            {% if material in selected_materials %}checked{% endif %}>
+                        {{ material }}
+                    </label>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
     <!-- Value range filter -->
     <div>
-        <label for="min_value" style="color: #dcddde;">Value Range:</label>
+        <label for="min_value" style="color: #dcddde;">Объем:</label>
         <input 
             type="number" 
             name="min_value" 
             id="min_value" 
-            placeholder="Min value" 
+            placeholder="от" 
             value="{{ min_value }}" 
             style="
                 padding: 5px; 
@@ -45,7 +100,7 @@
             type="number" 
             name="max_value" 
             id="max_value" 
-            placeholder="Max value" 
+            placeholder="до" 
             value="{{ max_value }}" 
             style="
                 padding: 5px; 
@@ -60,12 +115,12 @@
 
     <!-- Weight range filter -->
     <div>
-        <label for="min_weight" style="color: #dcddde;">Weight Range:</label>
+        <label for="min_weight" style="color: #dcddde;">Вес:</label>
         <input 
             type="number" 
             name="min_weight" 
             id="min_weight" 
-            placeholder="Min weight" 
+            placeholder="от" 
             value="{{ min_weight }}" 
             style="
                 padding: 5px; 
@@ -80,7 +135,7 @@
             type="number" 
             name="max_weight" 
             id="max_weight" 
-            placeholder="Max weight" 
+            placeholder="до" 
             value="{{ max_weight }}" 
             style="
                 padding: 5px; 
@@ -107,6 +162,6 @@
             margin-top: 10px;
         "
     >
-        Search
+        Найти
     </button>
 </form>
