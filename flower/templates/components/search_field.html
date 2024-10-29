@@ -1,35 +1,112 @@
-<style>
-    .search-form {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 20px;
-    }
-    .search-form input[type="text"] {
-        background-color: #2f3136;
-        color: #dcddde;
-        border: none;
-        padding: 8px 12px;
-        border-radius: 4px;
-        width: 100%;
-    }
-    .search-form input[type="text"]::placeholder {
-        color: #72767d;
-    }
-    .search-form button {
-        background-color: #5865f2;
-        color: #fff;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    .search-form button:hover {
-        background-color: #4752c4;
-    }
-</style>
+<form method="get" action="" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+    <!-- Search by name with type option -->
+    <div>
+        <label for="q" style="color: #dcddde;">Search Name:</label>
+        <input 
+            type="text" 
+            name="q" 
+            id="q"
+            placeholder="Enter name..." 
+            value="{{ query }}" 
+            style="
+                padding: 10px; 
+                background-color: #2f3136; 
+                color: #dcddde; 
+                border: none; 
+                border-radius: 4px;
+                width: 200px;
+            "
+        >
+        <select name="search_type" style="padding: 5px; background-color: #2f3136; color: #dcddde; border-radius: 4px;">
+            <option value="contains" {% if search_type == 'contains' %}selected{% endif %}>Contains</option>
+            <option value="starts_with" {% if search_type == 'starts_with' %}selected{% endif %}>Starts with</option>
+        </select>
+    </div>
 
-<form method="get" action="" class="search-form">
-    <input type="text" name="q" placeholder="Search..." value="{{ query }}">
-    <button type="submit">Search</button>
+    <!-- Value range filter -->
+    <div>
+        <label for="min_value" style="color: #dcddde;">Value Range:</label>
+        <input 
+            type="number" 
+            name="min_value" 
+            id="min_value" 
+            placeholder="Min value" 
+            value="{{ min_value }}" 
+            style="
+                padding: 5px; 
+                background-color: #2f3136; 
+                color: #dcddde; 
+                border: none; 
+                border-radius: 4px;
+                width: 100px;
+            "
+        >
+        <input 
+            type="number" 
+            name="max_value" 
+            id="max_value" 
+            placeholder="Max value" 
+            value="{{ max_value }}" 
+            style="
+                padding: 5px; 
+                background-color: #2f3136; 
+                color: #dcddde; 
+                border: none; 
+                border-radius: 4px;
+                width: 100px;
+            "
+        >
+    </div>
+
+    <!-- Weight range filter -->
+    <div>
+        <label for="min_weight" style="color: #dcddde;">Weight Range:</label>
+        <input 
+            type="number" 
+            name="min_weight" 
+            id="min_weight" 
+            placeholder="Min weight" 
+            value="{{ min_weight }}" 
+            style="
+                padding: 5px; 
+                background-color: #2f3136; 
+                color: #dcddde; 
+                border: none; 
+                border-radius: 4px;
+                width: 100px;
+            "
+        >
+        <input 
+            type="number" 
+            name="max_weight" 
+            id="max_weight" 
+            placeholder="Max weight" 
+            value="{{ max_weight }}" 
+            style="
+                padding: 5px; 
+                background-color: #2f3136; 
+                color: #dcddde; 
+                border: none; 
+                border-radius: 4px;
+                width: 100px;
+            "
+        >
+    </div>
+
+    <!-- Submit Button -->
+    <button 
+        type="submit" 
+        style="
+            padding: 10px 20px; 
+            background-color: #5865f2; 
+            color: #ffffff; 
+            border: none; 
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        "
+    >
+        Search
+    </button>
 </form>
