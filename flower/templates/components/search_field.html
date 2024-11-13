@@ -61,6 +61,7 @@
         </select>
     </div>
 
+    <!-- Materials dropdown filter -->
     <div>
         <div class="dropdown">
             <button type="button" class="dropdown-button">Материалы</button>
@@ -78,15 +79,16 @@
             </div>
         </div>
     </div>
-    <!-- Value range filter -->
+
+    <!-- Length range filter -->
     <div>
-        <label for="min_value" style="color: #dcddde;">Объем:</label>
+        <label for="min_length" style="color: #dcddde;">Длина:</label>
         <input 
             type="number" 
-            name="min_value" 
-            id="min_value" 
+            name="min_length" 
+            id="min_length" 
             placeholder="от" 
-            value="{{ min_value }}" 
+            value="{{ min_length }}" 
             style="
                 padding: 5px; 
                 background-color: #2f3136; 
@@ -98,10 +100,80 @@
         >
         <input 
             type="number" 
-            name="max_value" 
-            id="max_value" 
+            name="max_length" 
+            id="max_length" 
             placeholder="до" 
-            value="{{ max_value }}" 
+            value="{{ max_length }}" 
+            style="
+                padding: 5px; 
+                background-color: #2f3136; 
+                color: #dcddde; 
+                border: none; 
+                border-radius: 4px;
+                width: 100px;
+            "
+        >
+    </div>
+
+    <!-- Thickness range filter -->
+    <div>
+        <label for="min_thickness" style="color: #dcddde;">Толщина:</label>
+        <input 
+            type="number" 
+            name="min_thickness" 
+            id="min_thickness" 
+            placeholder="от" 
+            value="{{ min_thickness }}" 
+            style="
+                padding: 5px; 
+                background-color: #2f3136; 
+                color: #dcddde; 
+                border: none; 
+                border-radius: 4px;
+                width: 100px;
+            "
+        >
+        <input 
+            type="number" 
+            name="max_thickness" 
+            id="max_thickness" 
+            placeholder="до" 
+            value="{{ max_thickness }}" 
+            style="
+                padding: 5px; 
+                background-color: #2f3136; 
+                color: #dcddde; 
+                border: none; 
+                border-radius: 4px;
+                width: 100px;
+            "
+        >
+    </div>
+
+    <!-- Diameter range filter -->
+    <div>
+        <label for="min_diameter" style="color: #dcddde;">Диаметр:</label>
+        <input 
+            type="number" 
+            name="min_diameter" 
+            id="min_diameter" 
+            placeholder="от" 
+            value="{{ min_diameter }}" 
+            style="
+                padding: 5px; 
+                background-color: #2f3136; 
+                color: #dcddde; 
+                border: none; 
+                border-radius: 4px;
+                width: 100px;
+            "
+        >
+        <input 
+            type="number" 
+            name="max_diameter" 
+            id="max_diameter" 
+            placeholder="до" 
+            value="{{ max_diameter }}" 
             style="
                 padding: 5px; 
                 background-color: #2f3136; 
@@ -145,6 +217,41 @@
                 border-radius: 4px;
                 width: 100px;
             "
+        >
+    </div>
+
+    <!-- Price range filter -->
+    <div>
+        <label for="min_price" style="color: #dcddde;">Цена:</label>
+        <input 
+            type="number" 
+            name="min_price" 
+            id="min_price" 
+            placeholder="от" 
+            value="{{ min_price }}" 
+            style="
+                padding: 5px; 
+                background-color: #2f3136; 
+                color: #dcddde; 
+                border: none; 
+                border-radius: 4px;
+                width: 100px;
+            "
+        >
+       <input 
+            type="number" 
+            name="max_price" 
+           id="max_price" 
+           placeholder="до" 
+           value="{{ max_price }}" 
+           style="
+               padding: 5px; 
+               background-color: #2f3136; 
+               color: #dcddde; 
+                border: none; 
+               border-radius: 4px;
+               width: 100px;
+           "
         >
     </div>
 
